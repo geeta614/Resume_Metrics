@@ -65,7 +65,7 @@ It is designed specifically for placement season, internships, and entry-level r
 ## 🔧 Run Locally
 
 ```bash
-git clone https://github.com/geeta614/resume-builder.git
+git clone https://github.com/geeta614/Resume_Metrics.git
 cd resume-builder
 open index.html
 ```
