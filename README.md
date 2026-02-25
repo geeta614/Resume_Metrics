@@ -1,64 +1,96 @@
-# 📝 Form2Resume
+# 🧠 Resume Metrics
 
-[Live Website 🌐](https://form2resume.netlify.app/)  
-[GitHub Repo 💻](https://github.com/geeta614/resume-builder)
+🔗 **Live Demo:** [https://resumemetrics.netlify.app/](https://resumemetrics.netlify.app/)
 
-Form2Resume is a beginner-friendly, form-based Resume Builder that helps users generate **ATS-friendly**, professional resumes with ease. It allows users to fill out a simple form and instantly preview and download a PDF version of their resume.
+Resume Metrics is a smart resume-building and job analysis toolkit designed to help students and early professionals create structured, ATS-friendly resumes and evaluate how well they match job descriptions — all in one streamlined web application.
+
+It focuses on clarity, keyword alignment, and recruiter-ready formatting rather than decorative templates.
 
 ---
 
-## 🚀 Features
+## 🚀 Core Features
 
-- 📄 **Form-based Resume Creation** – Just fill out the form, and your resume is generated automatically.
-- 🔍 **Live Preview** – See how your resume looks in real-time.
-- 📥 **PDF Download** – Download your resume as a print-ready PDF.
-- 🌐 **Responsive Design** – Fully responsive on mobile, tablet, and desktop.
-- 🔗 **Contact Developer Section** – Easily connect via LinkedIn.
-- ✅ **ATS-Friendly Output** – Clean layout that ensures compatibility with Applicant Tracking Systems (ATS).
+### 📄 1. Smart Resume Builder
+
+* Structured, form-based resume creation
+* Real-time preview generation
+* One-click PDF export (ATS-optimized format)
+* Education, experience, projects, skills sections
+* Input validation for CGPA, percentages, phone, etc.
+* Auto-save form data using LocalStorage
+
+### 📊 2. Job Description Analyzer
+
+* Extracts meaningful keywords from job descriptions
+* Calculates resume–JD match percentage
+* Identifies missing keywords
+* Helps improve resume alignment before applying
+
+### ✍️ 3. Resume Bullet Strength Analyzer
+
+* Detects weak action verbs
+* Checks for measurable impact (numbers, metrics)
+* Suggests improvements for stronger bullet points
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Technology     | Description                      |
-|----------------|----------------------------------|
-| **HTML5**      | Markup structure                 |
-| **CSS3**       | Styling and responsive design    |
-| **JavaScript** | Dynamic behavior and PDF logic   |
-| **html2pdf.js**| Library to generate downloadable PDF |
-| **Netlify**    | Hosting and deployment platform  |
-| **GitHub**     | Version control and source hosting |
+| Layer      | Technology                     |
+| ---------- | ------------------------------ |
+| Frontend   | HTML5, CSS3, JavaScript        |
+| State Mgmt | LocalStorage                   |
+| PDF Engine | html2pdf.js                    |
+| Validation | Native HTML5 + Custom JS Logic |
+| Hosting    | Netlify                        |
+| Versioning | Git & GitHub                   |
 
 ---
 
-## 📷 Screenshots
+## 🎯 What Makes This Different?
 
-![image](https://github.com/user-attachments/assets/abc267ab-4815-4b9a-a764-6bc99f6c180c)
+Unlike template-heavy resume tools, Resume Metrics focuses on:
 
-![image](https://github.com/user-attachments/assets/ddab9b93-1796-4fc9-9820-708d27fe349c)
+* ATS compatibility
+* Structured formatting
+* Keyword optimization
+* Data validation
+* Simplicity over visual clutter
 
-![image](https://github.com/user-attachments/assets/c33559ab-1528-4f3e-af5e-7f69080d0e8f)
-
----
-
-## 🔧 How to Use
-
-1. Visit the live site: [form2resume.netlify.app](https://form2resume.netlify.app/)
-2. Fill out the resume form fields.
-3. Click "Generate Preview" to see your resume.
-4. Click "Download PDF" to save it.
+It is designed specifically for placement season, internships, and entry-level roles.
 
 ---
 
-## 🤝 Connect With Developer
 
-- [LinkedIn](https://www.linkedin.com/in/geeta-garg614/) 
+## 🔧 Run Locally
+
+```bash
+git clone https://github.com/geeta614/resume-builder.git
+cd resume-builder
+open index.html
+```
+
+No backend setup required for basic usage.
 
 ---
 
-## 📌 Future Improvements
+## 📌 Roadmap / Future Improvements
 
-- Dark mode toggle
-- Resume templates/themes
-- Save & edit functionality
-- Better grammar/spell check integration
+* Multiple resume templates
+* Cloud save with authentication
+* Advanced keyword clustering
+* Grammar enhancement integration
+* Backend-based analytics
+* Deployment as full-stack app
+
+---
+
+## 👩‍💻 Developed By
+
+Geeta Garg, B.Tech CSE-AI
+Indira Gandhi Delhi Technical University for Women
+
+LinkedIn: [https://www.linkedin.com/in/geeta-garg614/](https://www.linkedin.com/in/geeta-garg614/)
+
+---
+
