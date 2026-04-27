@@ -4,80 +4,191 @@
   <meta charset="UTF-8">
   <title>Resume Metrics</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
+
 <body>
-    <nav class="navbar">
-        <div class="nav-left">
-            <strong>Resume Metrics</strong>
-        </div>
-        <div class="nav-right">
-            <a href="resume.html">Resume Builder</a>
-            <a href="analyzer.html">Job Analyzer</a>
-        </div>
-    </nav>
 
-  <div class="landing-container">
-    <h1>Resume Metrics</h1>
-    <p>
-      Resume Metrics helps you build ATS-friendly resumes, analyze job descriptions, and strengthen bullet points using smart rule-based analysis — built for students and aspiring developers.
-    </p>
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+  <div class="nav-left">
+    <strong>Resume Metrics</strong>
+  </div>
+  <div class="nav-right">
+    <a href="#home">Home</a>
+    <a href="#resume">Resume Builder</a>
+    <a href="#analyzer">Job Analyzer</a>
+  </div>
+</nav>
 
-    <div class="feature-cards">
+<!-- ================= INDEX SECTION ================= -->
+<div id="home" class="landing-container">
+  <h1>Resume Metrics</h1>
+  <p>
+    Build ATS-friendly resumes, analyze job descriptions, and improve bullet points with smart rule-based insights.
+  </p>
 
-      <div class="card">
-        <h3>Build Smart Resume</h3>
-        <p>Build structured, ATS-friendly resumes with real-time preview, smart validation, and one-click PDF export — optimized for placements and internships.</p>
-        <a href="resume.html">
-          <button>Go to Resume Builder</button>
-        </a>
-      </div>
+  <div class="feature-cards">
 
-      <div class="card">
-        <h3>Analyze Job Description</h3>
-        <p>Compare your resume against real job descriptions, calculate match percentage, detect missing keywords, and refine your application with data-backed insights.</p>
-        <a href="analyzer.html">
-          <button>Go to Job Analyzer</button>
-        </a>
-      </div>
-
+    <div class="card">
+      <h3>Build Smart Resume</h3>
+      <p>Create structured, ATS-friendly resumes with real-time preview and one-click PDF export.</p>
+      <a href="#resume">
+        <button>Go to Resume Builder</button>
+      </a>
     </div>
 
-    <div class="features">
-      <h3>Why Use Resume Metrics?</h3>
-      <ul>
-        <li>Live Resume Builder with Real-Time Preview</li>
-        <li>One-Click PDF Export (ATS Optimized Format)</li>
-        <li>Resume Bullet Strength Analyzer</li>
-        <li>Job Description Keyword Match Scoring </li>
-        <li>Missing Skills & Keyword Identification</li>
-        <li>Auto-Save Form Data (No Data Loss) </li>
-        <li>Clean, Minimal, Recruiter-Friendly Templates </li>
-        <li>100% Browser-Based — No Account Required </li>
-      </ul>
-    </div>
-
-    <div class="features">
-      <h3>Who is Resume Metrics for?</h3>
-      <ul>
-        <li>Engineering students preparing for placements</li>
-        <li>Developers applying for internships or full-time roles</li>
-        <li>Anyone who wants ATS-optimized resumes</li>
-        <li>Candidates who want measurable, data-backed resume feedback</li>
-      </ul>
+    <div class="card">
+      <h3>Analyze Job Description</h3>
+      <p>Match your resume with job descriptions, find missing keywords, and improve your chances.</p>
+      <a href="#analyzer">
+        <button>Go to Job Analyzer</button>
+      </a>
     </div>
 
   </div>
+</div>
 
-  <hr>
+<hr>
 
-  <footer style="text-align: center; margin-top: 40px; font-size: 0.9em;">
-    <p>Need help or have feedback?</p>
-    <p>
-      <a href="https://www.linkedin.com/in/geeta-garg614/" target="_blank" rel="noopener noreferrer">
-        Contact the Developer on LinkedIn
-      </a>
-    </p>
-  </footer>
+<!-- ================= RESUME BUILDER SECTION ================= -->
+<div id="resume">
+
+  <h1>Resume Builder</h1>
+
+  <p>Create ATS-friendly resumes with structured sections, real-time preview, and clean formatting. Improve bullet points and export a recruiter-ready PDF in one click.</p>
+
+  <form id="resumeForm" onsubmit="event.preventDefault(); generatePreview();">
+
+    <h2>Personal Information <span style="color:red;">*</span></h2>
+    <input id="name" placeholder="Full Name" required />
+    <input id="email" type="email" placeholder="Email" required />
+    <input id="phone" type="tel" pattern="[0-9]{10}" maxlength="10"
+      placeholder="Phone Number" required
+      oninvalid="this.setCustomValidity('Phone number must be exactly 10 digits.')"
+      oninput="this.setCustomValidity('')" />
+
+    <input id="linkedin" placeholder="LinkedIn URL (optional)" />
+    <input id="github" placeholder="GitHub URL (optional)" />
+    <input id="leetcode" placeholder="LeetCode URL (optional)" />
+
+    <hr />
+
+    <h2>Education <span style="color:red;">*</span></h2>
+    <input id="college" placeholder="University Name" required />
+    <input id="degree" placeholder="Degree" required />
+    <input id="duration1" placeholder="Duration (e.g., 2022 - 2026)" required />
+    <input id="cgpa" type="number" step="0.01" min="0" max="10" placeholder="CGPA" required />
+
+    <input id="school12" placeholder="Class 12 School (optional)" />
+    <input id="duration12" placeholder="Year (optional)" />
+    <input id="percent12" type="number" step="0.01" min="0" max="100" placeholder="Percentage (optional)" />
+
+    <input id="school10" placeholder="Class 10 School (optional)" />
+    <input id="duration10" placeholder="Year (optional)" />
+    <input id="percent10" type="number" step="0.01" min="0" max="100" placeholder="Percentage (optional)" />
+
+    <hr />
+
+    <h2>Projects (optional)</h2>
+    <div id="projectsContainer">
+      <div class="project-entry">
+        <input class="projectTitle" placeholder="Project Title (optional)" />
+        <input class="projectGit" placeholder="Project GitHub URL (optional)" />
+        <input class="projectLink" placeholder="Project Live URL (optional)" />
+        <input class="projectDate" placeholder="Completion Date (e.g. Jan 2025) (optional)" />
+        <textarea class="projectPoints" placeholder="Project points (separate with *) (optional)"></textarea>
+        <input class="techStack" placeholder="Tech Stack (optional)" />
+        <button type="button" class="remove-btn" onclick="removeProject(this)">❌ Remove</button>
+      </div>
+    </div>
+    <button type="button" onclick="addProject()">+ Add Project</button>
+
+    <hr />
+
+    <h2>Experience (optional)</h2>
+    <div id="experienceContainer">
+      <div class="experience-entry">
+        <input class="jobRole" placeholder="Job Role (optional)" />
+        <input class="jobOrg" placeholder="Organization (optional)" />
+        <input class="jobDuration" placeholder="Duration (optional)" />
+        <textarea class="jobDesc" placeholder="What did you do? (separate with *) (optional)"></textarea>
+        <button type="button" class="remove-btn" onclick="removeExperience(this)">❌ Remove</button>
+      </div>
+    </div>
+    <button type="button" onclick="addExperience()">+ Add Experience</button>
+
+    <hr />
+
+    <h2>Technical Skills <span style="color:red;">*</span></h2>
+    <input id="languages" placeholder="Languages (separate with ,)" required />
+    <input id="tools" placeholder="Tools (separate with ,)" required />
+    <input id="courseWork" placeholder="Course Work (separate with ,)" required />
+
+    <hr />
+
+    <h2>Positions of Responsibility (optional)</h2>
+    <textarea id="positions" placeholder="List positions of responsibility (separate with *)"></textarea>
+
+    <hr />
+
+    <h2>Achievements (optional)</h2>
+    <textarea id="achievements" placeholder="List achievements (separate with *)"></textarea>
+
+    <hr />
+
+    <h2>Certifications (optional)</h2>
+    <textarea id="certifications" placeholder="List certifications (separate with *)"></textarea>
+
+    <button type="submit">Generate Preview</button>
+    <button type="button" id="downloadBtn" onclick="downloadPDF()" style="display: none;">Download PDF</button>
+    <button type="button" onclick="clearSavedData()">Clear Saved Data</button>
+
+    <hr />
+
+    <h2>Resume Bullet Strength Analyzer</h2>
+    <textarea id="bulletInput" placeholder="Paste a project or experience bullet point here..."></textarea>
+    <button type="button" onclick="analyzeBulletStrength()">Analyze Bullet Strength</button>
+
+    <div id="aiResult" style="margin-top: 15px;"></div>
+
+  </form>
+
+  <div id="resumeTemplate" style="display:none;"></div>
+</div>
+
+<hr>
+
+<!-- ================= ANALYZER SECTION ================= -->
+<div id="analyzer">
+
+  <h1>Job Description Analyzer</h1>
+
+  <p>Evaluate how well your resume matches a job role by analyzing keywords and identifying missing skills. Get a match score, detect gaps, and improve your resume before applying.</p>
+
+  <textarea id="jobDescription" placeholder="Paste Job Description here..." oninput="autoSaveJD()"></textarea>
+  <button type="button" onclick="analyzeResume()">Analyze Resume</button>
+  <button onclick="clearJD()">Clear Job Description</button>
+
+  <div id="analysisResult" style="margin-top: 15px; font-weight: 500;"></div>
+
+</div>
+
+<hr>
+
+<!-- ================= FOOTER ================= -->
+<footer style="text-align: center; margin-top: 40px; font-size: 0.9em;">
+  <p>Need help or have feedback?</p>
+  <p>
+    <a href="https://www.linkedin.com/in/geeta-garg614/" target="_blank" rel="noopener noreferrer">
+      Contact the Developer on LinkedIn
+    </a>
+  </p>
+</footer>
+
+<script src="script.js"></script>
+<script>loadSavedJD();</script>
 
 </body>
 </html>
