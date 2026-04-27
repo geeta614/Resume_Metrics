@@ -274,10 +274,32 @@ p, ul {
   margin-bottom: 20px;
 }
 
-p {
+.landing-container p {
   max-width: 700px;
   text-align: center;
   margin: 15px auto;
+}
+
+#resume > p {
+  max-width: 700px;
+  text-align: center;
+  margin: 15px auto;
+}
+
+#analyzer > p {
+  max-width: 700px;
+  text-align: center;
+  margin: 15px auto;
+}
+
+#resumeTemplate {
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+#analyzer {
+  max-width: 800px;
+  margin: auto;
 }
 
 /* ========================= */
