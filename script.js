@@ -137,7 +137,7 @@ function buildResumeTemplate(projectHTML, experienceHTML) {
   const certificationsHTML = listify(get("certifications"));
 
   return `
-    <div style="font-family: 'Georgia', serif; max-width: 800px; margin: auto; color: black;">
+    <div style="font-family: 'Georgia', serif; max-width: 800px; margin: 0; color: black;">
       <h1 style="text-align: center;">${get("name")}</h1>
       <p style="text-align: center;">
         ${get("phone")} | ${get("email")} |
@@ -228,7 +228,7 @@ function downloadPDF() {
       .from(target)
       .save()
       .then(() => {
-        target.classList.remove("bw-print", "pdf-compact");
+        target.classList.remove("bw-print", "pdf-compact", "ats-optimized");
       });
   }, 500);
 }
@@ -301,10 +301,10 @@ function analyzeBulletStrength() {
   ];
 
   const techKeywords = [
-    "java", "spring", "react", "node", "express",
-    "sql", "mysql", "mongodb", "api", "rest",
-    "docker", "aws", "azure", "python",
-    "javascript", "html", "css"
+    "c", "c++", "java", "sql", "spring", "html", 
+    "css", "javascript", "react", "python",
+    "node", "express", "mysql", "mongodb", "api", "rest",
+    "docker", "aws", "azure"
   ];
 
   let suggestions = [];
